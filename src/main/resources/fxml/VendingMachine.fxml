@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kenac.vendingmachine.VendingMachineController">
+   <children>
+      <TabPane layoutX="107.0" layoutY="78.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Vending Machine">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="155.0" layoutY="77.0" prefHeight="471.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox prefHeight="78.0" prefWidth="900.0" />
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="48.0" prefWidth="900.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Enter Coin" />
+                                    <TextField fx:id="coinText" prefHeight="26.0" prefWidth="269.0" promptText="Enter Coins (1, 5, 10, 25)" />
+                                    <Button mnemonicParsing="false" onAction="#punchCoin" text="Punch Coin" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane prefHeight="288.0" prefWidth="1000.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="447.0" prefWidth="1000.0" AnchorPane.bottomAnchor="-159.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label style="-fx-font-size: 20px;" text="Select Product" />
+                                          <HBox alignment="CENTER" prefHeight="103.0" prefWidth="1000.0" spacing="200.0" style="-fx-background-color: #E3E3E3;">
+                                             <children>
+                                                <RadioButton fx:id="coke" mnemonicParsing="false" onAction="#cokeSelected" style="-fx-font-size: 17px;" text="Coke(25)">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="products" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="pepsi" mnemonicParsing="false" onAction="#pepsiSelected" style="-fx-font-size: 17px;" text="Pepsi(35)" toggleGroup="$products" />
+                                                <RadioButton fx:id="soda" mnemonicParsing="false" onAction="#sodaSelected" style="-fx-font-size: 17px;" text="Soda(45)" toggleGroup="$products" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="92.0" prefWidth="1000.0">
+                                             <children>
+                                                <AnchorPane prefHeight="92.0" prefWidth="1002.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER" layoutX="176.0" layoutY="42.0" prefHeight="92.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <Label style="-fx-font-size: 17px; -fx-font-weight: bold;" text="Punched Coins : " />
+                                                            <Label fx:id="punchedCoins" style="-fx-font-weight: bold; -fx-font-size: 17px;" text="0" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1000.0" spacing="100.0">
+                                             <children>
+                                                <Button fx:id="purchaseBtn" lineSpacing="50.0" mnemonicParsing="false" onAction="#purchaseProduct" prefWidth="200.0" text="Purchase" />
+                                                <Button layoutX="474.0" layoutY="44.0" lineSpacing="50.0" mnemonicParsing="false" onAction="#cancelPurchase" prefWidth="200.0" text="Cancel Purchase" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="100.0">
+                                             <children>
+                                                <Label fx:id="purchasedProduct" style="-fx-font-size: 25px;" />
+                                                <Label fx:id="purchaseInfo" layoutX="480.0" layoutY="45.0" style="-fx-font-size: 25px;" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab onSelectionChanged="#supplierTab" text="Supplier">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="116.0" layoutY="123.0" prefHeight="640.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="640.0" prefWidth="314.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#reset" style="-fx-background-color: #EE3C25; -fx-font-size: 25px;" text="Reset" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="640.0" prefWidth="692.0">
+                                 <children>
+                                    <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="PRODUCT INVENTORY" underline="true" />
+                                    <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+                                       <children>
+                                          <Label fx:id="cokeAvailable" style="-fx-font-size: 25px;" />
+                                          <Separator prefWidth="200.0" />
+                                          <Label fx:id="pepsiAvailable" layoutX="10.0" layoutY="20.0" style="-fx-font-size: 25px;" />
+                                          <Separator layoutX="10.0" layoutY="70.0" prefWidth="200.0" />
+                                          <Label fx:id="sodaAvailable" layoutX="10.0" layoutY="93.0" style="-fx-font-size: 25px;" />
+                                          <Separator layoutX="10.0" layoutY="143.0" prefWidth="200.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Label layoutX="210.0" layoutY="209.0" style="-fx-font-size: 28px; -fx-font-weight: bold;" text="AVAILABLE COINS" underline="true" />
+                                    <HBox prefHeight="296.0" prefWidth="689.0">
+                                       <children>
+                                          <VBox prefHeight="296.0" prefWidth="347.0" spacing="20.0">
+                                             <children>
+                                                <Label fx:id="pennyAvailable" style="-fx-font-size: 25px;" />
+                                                <Separator prefWidth="200.0" />
+                                                <Label fx:id="nickelAvailable" layoutX="10.0" layoutY="20.0" style="-fx-font-size: 25px;" />
+                                                <Separator layoutX="10.0" layoutY="70.0" prefWidth="200.0" />
+                                                <Label fx:id="dimeAvailable" layoutX="10.0" layoutY="93.0" style="-fx-font-size: 25px;" />
+                                                <Separator layoutX="10.0" layoutY="143.0" prefWidth="200.0" />
+                                                <Label fx:id="quarterAvailable" layoutX="10.0" layoutY="166.0" style="-fx-font-size: 25px;" />
+                                                <Separator layoutX="10.0" layoutY="216.0" prefWidth="200.0" />
+                                             </children>
+                                             <padding>
+                                                <Insets top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
